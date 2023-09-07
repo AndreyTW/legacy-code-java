@@ -17,9 +17,3 @@ pluginManagement {
         id("io.spring.dependency-management") version springDependencyManagementPluginVersion
     }
 }
-
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
-}
