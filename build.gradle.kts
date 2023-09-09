@@ -1,4 +1,5 @@
 plugins {
+    kotlin("jvm")
     id("java")
     id("org.springframework.boot")
     id("io.spring.dependency-management")
@@ -22,6 +23,7 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("stdlib-jdk8"))
     implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     implementation("org.mockito:mockito-core:$mockitoVersion")
 

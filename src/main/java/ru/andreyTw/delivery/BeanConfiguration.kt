@@ -1,8 +1,6 @@
-package ru.andreyTw.delivery;
+package ru.andreyTw.delivery
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Configuration
 
 @Configuration
-public class BeanConfiguration {
-
-}
+class BeanConfiguration
