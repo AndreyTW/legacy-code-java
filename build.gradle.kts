@@ -47,3 +47,20 @@ tasks.withType<Test> {
     systemProperty("cucumber.publish.quiet", "true")
     useJUnitPlatform()
 }
+
+val cucumberRuntime by configurations.creating {
+    extendsFrom(configurations["testImplementation"])
+}
+
+task("cucumber") {
+    dependsOn("assemble", "compileTestJava")
+    doLast {
+        javaexec {
+            mainClass.set("io.cucumber.core.cli.Main")
+            classpath = cucumberRuntime + sourceSets.main.get().output + sourceSets.test.get().output
+            // Change glue for your project package where the step definitions are.
+            // And where the feature files are.
+            args = listOf("--plugin", "pretty", "--glue", "ru.andreyTw.delivery", "src/test/resources")
+        }
+    }
+}
