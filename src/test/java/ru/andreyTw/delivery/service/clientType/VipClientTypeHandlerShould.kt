@@ -26,11 +26,11 @@ class VipClientTypeHandlerShould {
 
     @Test
     fun return_2500_when_VIP_and_2375_are_given() {
-        assertEquals(2375, vipClientTypeHandler!!.calculate(2500))
+        assertEquals(2375, vipClientTypeHandler.calculate(2500))
     }
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.VIP, vipClientTypeHandler?.type)
+        assertEquals(ClientType.VIP, vipClientTypeHandler.type)
     }
 }
