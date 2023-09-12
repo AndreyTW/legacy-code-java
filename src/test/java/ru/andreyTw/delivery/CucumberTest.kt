@@ -1,7 +1,6 @@
-package ru.andreyTw.delivery;
+package ru.andreyTw.delivery
 
-import io.cucumber.junit.platform.engine.Cucumber;
+import io.cucumber.junit.platform.engine.Cucumber
 
 @Cucumber
-public class CucumberTest {
-}
+class CucumberTest
