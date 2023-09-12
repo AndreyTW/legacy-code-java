@@ -21,6 +21,6 @@ class FnFClientTypeHandlerShould {
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.FnF, fnFClientTypeHandler!!.type)
+        assertEquals(ClientType.FnF, fnFClientTypeHandler?.getType())
     }
 }

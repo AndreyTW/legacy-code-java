@@ -31,6 +31,6 @@ class VipClientTypeHandlerShould {
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.VIP, vipClientTypeHandler!!.type)
+        assertEquals(ClientType.VIP, vipClientTypeHandler?.getType())
     }
 }

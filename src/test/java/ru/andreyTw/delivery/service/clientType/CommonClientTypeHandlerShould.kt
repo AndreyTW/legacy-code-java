@@ -26,6 +26,6 @@ class CommonClientTypeHandlerShould {
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.COMMON, commonClientTypeHandler!!.type)
+        assertEquals(ClientType.COMMON, commonClientTypeHandler?.getType())
     }
 }

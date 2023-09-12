@@ -1,9 +1,10 @@
-package ru.andreyTw.delivery.service.clientType;
+package ru.andreyTw.delivery.service.clientType
 
-import ru.andreyTw.delivery.ClientType;
+import ru.andreyTw.delivery.ClientType
 
-public interface ClientTypeHandler {
-    Integer calculate(Integer cartAmount);
+interface ClientTypeHandler {
 
-    ClientType getType();
+    fun calculate(cartAmount: Int): Int
+
+    fun getType(): ClientType
 }
