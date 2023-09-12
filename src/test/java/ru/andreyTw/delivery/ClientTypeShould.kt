@@ -1,20 +1,19 @@
-package ru.andreyTw.delivery;
+package ru.andreyTw.delivery
 
-import org.junit.jupiter.api.Test;
-import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException;
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Test
+import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public class ClientTypeShould {
-
+class ClientTypeShould {
     @Test
-    public void parseCorrectType() throws UnknownClientTypeException {
-        assertNotNull(ClientType.titleOf("Обычный"));
+    @Throws(UnknownClientTypeException::class)
+    fun parseCorrectType() {
+        assertNotNull(ClientType.titleOf("Обычный"))
     }
 
     @Test
-    public void parseIncorrectType() {
-        assertThrows(UnknownClientTypeException.class, () -> ClientType.titleOf("Неизвестный"));
+    fun parseIncorrectType() {
+        assertThrows(UnknownClientTypeException::class.java) { ClientType.titleOf("Неизвестный") }
     }
 }
