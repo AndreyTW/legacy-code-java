@@ -7,7 +7,7 @@ import ru.andreyTw.delivery.ClientType
 
 class FnFClientTypeHandlerShould {
 
-    private var fnFClientTypeHandler: FnFClientTypeHandler? = null
+    private lateinit var fnFClientTypeHandler: FnFClientTypeHandler
 
     @BeforeEach
     fun setUp() {
@@ -16,11 +16,11 @@ class FnFClientTypeHandlerShould {
 
     @Test
     fun return_980_when_FriendsAndFamily_and_1000_are_given() {
-        assertEquals(980, fnFClientTypeHandler!!.calculate(1000))
+        assertEquals(980, fnFClientTypeHandler.calculate(1000))
     }
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.FnF, fnFClientTypeHandler?.getType())
+        assertEquals(ClientType.FnF, fnFClientTypeHandler.type)
     }
 }

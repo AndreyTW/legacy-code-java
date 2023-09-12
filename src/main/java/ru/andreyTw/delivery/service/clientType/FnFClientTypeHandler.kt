@@ -17,5 +17,5 @@ class FnFClientTypeHandler : ClientTypeHandler {
         return (cartAmount * (1 - p / 100.0)).toInt()
     }
 
-    override fun getType(): ClientType = ClientType.FnF
+    override val type: ClientType = ClientType.FnF
 }

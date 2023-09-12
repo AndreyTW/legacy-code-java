@@ -21,7 +21,5 @@ class VipClientTypeHandler : ClientTypeHandler {
         }
     }
 
-    override fun getType(): ClientType {
-        return ClientType.VIP
-    }
+    override val type: ClientType = ClientType.VIP
 }

@@ -4,7 +4,7 @@ import ru.andreyTw.delivery.ClientType
 
 interface ClientTypeHandler {
 
-    fun calculate(cartAmount: Int): Int
+    val type: ClientType
 
-    fun getType(): ClientType
+    fun calculate(cartAmount: Int): Int
 }

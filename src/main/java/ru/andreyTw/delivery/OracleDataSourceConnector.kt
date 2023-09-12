@@ -47,7 +47,7 @@ class OracleDataSourceConnector : DataSourceConnector {
         try {
             if (resultSet != null) resultSet!!.close()
             if (preparedStatement != null) preparedStatement!!.close()
-            if (connection != null) connection!!.close()
+            connection.close()
         } catch (e: SQLException) {
             e.printStackTrace()
         }

@@ -7,7 +7,7 @@ import ru.andreyTw.delivery.ClientType
 
 class VipClientTypeHandlerShould {
 
-    private var vipClientTypeHandler: VipClientTypeHandler? = null
+    private lateinit var vipClientTypeHandler: VipClientTypeHandler
 
     @BeforeEach
     fun setUp() {
@@ -16,12 +16,12 @@ class VipClientTypeHandlerShould {
 
     @Test
     fun return_999_when_VIP_and_999_are_given() {
-        assertEquals(999, vipClientTypeHandler!!.calculate(999))
+        assertEquals(999, vipClientTypeHandler.calculate(999))
     }
 
     @Test
     fun return_2499_when_VIP_and_2499_are_given() {
-        assertEquals(2499, vipClientTypeHandler!!.calculate(2499))
+        assertEquals(2499, vipClientTypeHandler.calculate(2499))
     }
 
     @Test
@@ -31,6 +31,6 @@ class VipClientTypeHandlerShould {
 
     @Test
     fun returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.VIP, vipClientTypeHandler?.getType())
+        assertEquals(ClientType.VIP, vipClientTypeHandler?.type)
     }
 }
