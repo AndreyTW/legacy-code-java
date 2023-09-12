@@ -1,29 +1,27 @@
-package ru.andreyTw.delivery.service.clientType;
+package ru.andreyTw.delivery.service.clientType
 
-import org.springframework.stereotype.Service;
-import ru.andreyTw.delivery.ClientType;
-import ru.andreyTw.delivery.DataSourceConnector;
-import ru.andreyTw.delivery.OracleDataSourceConnector;
+import org.springframework.stereotype.Service
+import ru.andreyTw.delivery.ClientType
+import ru.andreyTw.delivery.DataSourceConnector
+import ru.andreyTw.delivery.OracleDataSourceConnector
 
 @Service
-public class VipClientTypeHandler implements ClientTypeHandler {
+class VipClientTypeHandler : ClientTypeHandler {
 
-    public Integer calculate(Integer cartAmount) {
-
-        DataSourceConnector dataSourceConnector = new OracleDataSourceConnector();
-
-        dataSourceConnector.openConnection();
-        dataSourceConnector.prepareResultSet("VIP");
-        int b = dataSourceConnector.getDataByIndex(0);
-        int p = dataSourceConnector.getDataByIndex(1);
-        dataSourceConnector.closeConnection();
-
-        return cartAmount >= b ? Double.valueOf(cartAmount * (1 - p / 100.0)).intValue() : cartAmount;
+    override fun calculate(cartAmount: Int): Int {
+        val dataSourceConnector: DataSourceConnector = OracleDataSourceConnector()
+        dataSourceConnector.openConnection()
+        dataSourceConnector.prepareResultSet("VIP")
+        val b = dataSourceConnector.getDataByIndex(0)
+        val p = dataSourceConnector.getDataByIndex(1)
+        dataSourceConnector.closeConnection()
+        return when {
+            cartAmount >= b -> (cartAmount * (1 - p / 100.0)).toInt()
+            else -> cartAmount
+        }
     }
 
-    @Override
-    public ClientType getType() {
-        return ClientType.VIP;
+    override fun getType(): ClientType {
+        return ClientType.VIP
     }
-
 }
