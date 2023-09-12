@@ -1,37 +1,36 @@
-package ru.andreyTw.delivery.service.clientType;
+package ru.andreyTw.delivery.service.clientType
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import ru.andreyTw.delivery.ClientType;
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import ru.andreyTw.delivery.ClientType
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+class VipClientTypeHandlerShould {
 
-public class VipClientTypeHandlerShould {
-
-    VipClientTypeHandler vipClientTypeHandler;
+    private var vipClientTypeHandler: VipClientTypeHandler? = null
 
     @BeforeEach
-    void setUp() {
-        vipClientTypeHandler = new VipClientTypeHandler();
+    fun setUp() {
+        vipClientTypeHandler = VipClientTypeHandler()
     }
 
     @Test
-    void return_999_when_VIP_and_999_are_given() {
-        assertEquals(999, vipClientTypeHandler.calculate(999).intValue());
+    fun return_999_when_VIP_and_999_are_given() {
+        assertEquals(999, vipClientTypeHandler!!.calculate(999))
     }
 
     @Test
-    void return_2499_when_VIP_and_2499_are_given() {
-        assertEquals(2499, vipClientTypeHandler.calculate(2499).intValue());
+    fun return_2499_when_VIP_and_2499_are_given() {
+        assertEquals(2499, vipClientTypeHandler!!.calculate(2499))
     }
 
     @Test
-    void return_2500_when_VIP_and_2375_are_given() {
-        assertEquals(2375, vipClientTypeHandler.calculate(2500).intValue());
+    fun return_2500_when_VIP_and_2375_are_given() {
+        assertEquals(2375, vipClientTypeHandler!!.calculate(2500))
     }
 
     @Test
-    void returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.VIP, vipClientTypeHandler.getType());
+    fun returnCommonClientTypeWhenAsked() {
+        assertEquals(ClientType.VIP, vipClientTypeHandler!!.type)
     }
 }

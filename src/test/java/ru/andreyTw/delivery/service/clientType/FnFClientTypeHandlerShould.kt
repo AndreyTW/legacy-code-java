@@ -1,27 +1,26 @@
-package ru.andreyTw.delivery.service.clientType;
+package ru.andreyTw.delivery.service.clientType
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import ru.andreyTw.delivery.ClientType;
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import ru.andreyTw.delivery.ClientType
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+class FnFClientTypeHandlerShould {
 
-public class FnFClientTypeHandlerShould {
-
-    FnFClientTypeHandler fnFClientTypeHandler;
+    private var fnFClientTypeHandler: FnFClientTypeHandler? = null
 
     @BeforeEach
-    void setUp() {
-        fnFClientTypeHandler = new FnFClientTypeHandler();
+    fun setUp() {
+        fnFClientTypeHandler = FnFClientTypeHandler()
     }
 
     @Test
-    void return_980_when_FriendsAndFamily_and_1000_are_given() {
-        assertEquals(980, fnFClientTypeHandler.calculate(1000).intValue());
+    fun return_980_when_FriendsAndFamily_and_1000_are_given() {
+        assertEquals(980, fnFClientTypeHandler!!.calculate(1000))
     }
 
     @Test
-    void returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.FnF, fnFClientTypeHandler.getType());
+    fun returnCommonClientTypeWhenAsked() {
+        assertEquals(ClientType.FnF, fnFClientTypeHandler!!.type)
     }
 }

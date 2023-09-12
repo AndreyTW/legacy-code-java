@@ -1,32 +1,31 @@
-package ru.andreyTw.delivery.service.clientType;
+package ru.andreyTw.delivery.service.clientType
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import ru.andreyTw.delivery.ClientType;
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import ru.andreyTw.delivery.ClientType
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+class CommonClientTypeHandlerShould {
 
-public class CommonClientTypeHandlerShould {
-
-    CommonClientTypeHandler commonClientTypeHandler;
+    private var commonClientTypeHandler: CommonClientTypeHandler? = null
 
     @BeforeEach
-    void setUp() {
-        commonClientTypeHandler = new CommonClientTypeHandler();
+    fun setUp() {
+        commonClientTypeHandler = CommonClientTypeHandler()
     }
 
     @Test
-    void return_1249_when_Obichny_and_999_are_given() {
-        assertEquals(1249, commonClientTypeHandler.calculate(999).intValue());
+    fun return_1249_when_Obichny_and_999_are_given() {
+        assertEquals(1249, commonClientTypeHandler!!.calculate(999))
     }
 
     @Test
-    void return_1000_when_Obichny_and_1000_are_given() {
-        assertEquals(1000, commonClientTypeHandler.calculate(1000).intValue());
+    fun return_1000_when_Obichny_and_1000_are_given() {
+        assertEquals(1000, commonClientTypeHandler!!.calculate(1000))
     }
 
     @Test
-    void returnCommonClientTypeWhenAsked() {
-        assertEquals(ClientType.COMMON, commonClientTypeHandler.getType());
+    fun returnCommonClientTypeWhenAsked() {
+        assertEquals(ClientType.COMMON, commonClientTypeHandler!!.type)
     }
 }
