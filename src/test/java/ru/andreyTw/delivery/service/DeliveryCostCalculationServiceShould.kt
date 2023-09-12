@@ -1,8 +1,8 @@
-package ru.andreyTw.delivery.service;
+package ru.andreyTw.delivery.service
 
-public class DeliveryCostCalculationServiceShould {
+class DeliveryCostCalculationServiceShould {
 
-    DeliveryCostCalculationService deliveryCostCalculationService;
+    var deliveryCostCalculationService: DeliveryCostCalculationService? = null
 
 //    @BeforeEach
 //    void setUp() {
@@ -21,5 +21,4 @@ public class DeliveryCostCalculationServiceShould {
 //
 //        assertEquals(CommonClientTypeHandler.class, clientTypeHandler.getClass());
 //    }
-
 }
