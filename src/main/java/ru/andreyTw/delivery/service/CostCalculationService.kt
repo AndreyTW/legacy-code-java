@@ -1,7 +1,9 @@
-package ru.andreyTw.delivery.service;
+package ru.andreyTw.delivery.service
 
-import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException;
+import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException
 
-public interface CostCalculationService {
-    Integer calculate(String clientType, Integer cartAmount)  throws UnknownClientTypeException;
+interface CostCalculationService {
+
+    @Throws(UnknownClientTypeException::class)
+    fun calculate(clientType: String?, cartAmount: Int?): Int?
 }
