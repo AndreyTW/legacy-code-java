@@ -1,12 +1,12 @@
-package ru.andreyTw.delivery;
+package ru.andreyTw.delivery
 
-public interface DataSourceConnector {
+interface DataSourceConnector {
 
-    void openConnection();
+    fun openConnection()
 
-    void prepareResultSet(String clientType);
+    fun prepareResultSet(clientType: String)
 
-    int getDataByIndex(int index);
+    fun getDataByIndex(index: Int): Int
 
-    void closeConnection();
+    fun closeConnection()
 }
