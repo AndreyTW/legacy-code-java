@@ -1,31 +1,28 @@
-package ru.andreyTw.delivery;
+package ru.andreyTw.delivery
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.mockito.ArgumentMatchers
+import org.mockito.Mockito
+import java.sql.Connection
+import java.sql.PreparedStatement
+import java.sql.ResultSet
+import java.sql.SQLException
+import javax.sql.DataSource
 
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+object OracleDataSource {
 
-public class OracleDataSource {
-
-    public static DataSource create(String user, String password, String instance) throws SQLException {
-        final var ds = mock(javax.sql.DataSource.class);
-        final var connection = mock(Connection.class);
-        final var preparedStatement = mock(PreparedStatement.class);
-        final var resultSet = mock(ResultSet.class);
-
-        when(ds.getConnection()).thenReturn(connection);
-        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
-        when(preparedStatement.executeQuery()).thenReturn(resultSet);
-        when(resultSet.next()).thenReturn(true);
-        when(resultSet.getInt(0)).thenReturn(2500);
-        when(resultSet.getInt(1)).thenReturn(5);
-        when(resultSet.getInt(2)).thenReturn(2);
-
-        return ds;
+    @Throws(SQLException::class)
+    fun create(user: String?, password: String?, instance: String?): DataSource {
+        val ds = Mockito.mock(DataSource::class.java)
+        val connection = Mockito.mock(Connection::class.java)
+        val preparedStatement = Mockito.mock(PreparedStatement::class.java)
+        val resultSet = Mockito.mock(ResultSet::class.java)
+        Mockito.`when`(ds.connection).thenReturn(connection)
+        Mockito.`when`(connection.prepareStatement(ArgumentMatchers.anyString())).thenReturn(preparedStatement)
+        Mockito.`when`(preparedStatement.executeQuery()).thenReturn(resultSet)
+        Mockito.`when`(resultSet.next()).thenReturn(true)
+        Mockito.`when`(resultSet.getInt(0)).thenReturn(2500)
+        Mockito.`when`(resultSet.getInt(1)).thenReturn(5)
+        Mockito.`when`(resultSet.getInt(2)).thenReturn(2)
+        return ds
     }
 }
