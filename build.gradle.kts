@@ -45,6 +45,5 @@ dependencies {
 }
 
 tasks.withType<Test> {
-    systemProperty("cucumber.publish.quiet", "true")
     useJUnitPlatform()
 }

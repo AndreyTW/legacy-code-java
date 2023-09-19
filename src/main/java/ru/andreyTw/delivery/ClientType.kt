@@ -1,7 +1,6 @@
 package ru.andreyTw.delivery
 
 import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException
-import java.util.Arrays
 
 enum class ClientType(
     val title: String
@@ -13,10 +12,8 @@ enum class ClientType(
 
     companion object {
 
-        @Throws(UnknownClientTypeException::class)
-        fun titleOf(title: String?): ClientType = Arrays.stream(entries.toTypedArray())
-            .filter { clientType: ClientType -> clientType.title == title }
-            .findFirst()
-            .orElseThrow { UnknownClientTypeException(title!!) }
+        fun titleOf(title: String): ClientType = entries
+            .firstOrNull { it.title == title }
+            .takeIf { it != null } ?: throw UnknownClientTypeException(title)
     }
 }
