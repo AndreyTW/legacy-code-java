@@ -28,6 +28,7 @@ dependencies {
     implementation("org.mockito:mockito-core:$mockitoVersion")
 
     testImplementation("org.mockito:mockito-junit-jupiter:$mockitoVersion")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
     testImplementation("org.springframework:spring-test:$springVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")

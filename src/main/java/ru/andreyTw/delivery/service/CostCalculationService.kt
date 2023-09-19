@@ -5,5 +5,5 @@ import ru.andreyTw.delivery.service.clientType.UnknownClientTypeException
 interface CostCalculationService {
 
     @Throws(UnknownClientTypeException::class)
-    fun calculate(clientType: String?, cartAmount: Int?): Int?
+    fun calculate(clientType: String, cartAmount: Int): Int
 }
